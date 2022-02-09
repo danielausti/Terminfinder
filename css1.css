@@ -1,0 +1,36 @@
+form {
+	position: absolute;
+	top:50%;
+	right:50%;
+	margin-top: -2%;
+	margin-right: -8%;
+	width: auto;
+	height: auto;
+	box-shadow: 50px 50px 50px darkgray, -50px 50px 50px silver;
+	border-radius: 1em 1em 1em 1em;
+	padding: 1.5em;
+}
+link{
+	position: absolute;
+	top:50%;
+	right:50%;
+	margin-top: -2%;
+	margin-right: -8%;
+	width: auto;
+	height: auto;
+	box-shadow: 50px 50px 50px darkgray, -50px 50px 50px silver;
+	border-radius: 1em 1em 1em 1em;
+	padding: 1.5em;
+}
+h1{
+	position: absolute;
+	font-family: italic;
+	color: white;
+	margin-top: -2%;
+		right:0%;
+		left:0%;
+	background-color: rgba(218,165,32,0.9);
+	width: auto;
+	height: auto;
+	padding: 1em;
+}

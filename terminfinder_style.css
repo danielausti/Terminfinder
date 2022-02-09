@@ -1,0 +1,353 @@
+:root{
+
+    --color: black;
+    --background: white;
+    --input-background: white;
+    --slider-background: #eaffff;
+    --color-calendar: 0,0,0;
+    --calendar-select: lightgreen;
+    --gray-background: lightgray;
+    --calendar-gray1: #c0c0c0;
+    --calendar-gray2: #e0e0e0;
+    --frontimage: url(terminfinder_light.png);
+    /* dark theme
+    --color: white;
+    --background: #303030;
+    --input-background: #202020;
+    --slider-background: #206060;
+    --color-calendar: 255,255,255;
+    --gray-background: #656565;
+    --calendar-select: green;
+    --calendar-gray1: #404040;
+    --calendar-gray2: #606060;
+    --frontimage: url(terminfinder_dark.png);
+    */
+}
+html,body{
+    color: var(--color);
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
+}
+body{
+    min-height: calc(100vh - 50px);
+    background-color: var(--background);
+}
+header{
+    width: 100%;
+    height: 50px;
+    max-height: 50px;
+    background-color: #0080ff;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    display: flex;
+    z-index: 100;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+header div{
+    height: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    box-sizing: border-box;
+}
+header a{
+    color: white;
+    text-decoration: none;
+}
+header h2{
+    padding: 5px;
+    font-size: 30px;
+    margin: 0px;
+    color: white;
+}
+header p{
+    margin: 0px;
+    height: 24px;
+    overflow: hidden;
+}
+#headerCenter{
+    width: 100%;
+}
+header button{
+    height: 40px;
+    min-width: 100px;
+    margin: 5px;
+    font-size: 18px;
+    background-color: #0080ff;
+    color: white;
+    cursor: pointer;
+}
+header button:hover{
+    background-color: #006cd8;
+}
+#headerUserBox{
+    position: fixed;
+    right: 5px;
+    top: 46px;
+    border: 1px black solid;
+    background-color: var(--gray-background);
+    width: fit-content;
+    height: fit-content;
+    height: -moz-fit-content;
+    color: var(--color);
+    display: none;
+}
+.show{
+    display: block !important;
+}
+#headerUserBox h4{
+    margin: 5px;
+    padding: 5px 0px;
+    width: calc(100% - 10px);
+    border-bottom: 1px black solid;
+}
+#headerUserBox p{
+    width: calc(100% - 10px);
+    text-align: center;
+    margin: 5px;
+    font-size: 20px;
+}
+#headerUserBox a {
+    color: var(--color);
+}
+#headerUserBox a:hover {
+    color: red;
+}
+
+main{
+    font-family: inherit;
+    background-color: var(--background);
+    min-height: calc(100vh - 50px);
+    height: fit-content;
+    max-width: 1000px;
+    width: 100vw;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow:auto;
+    box-sizing: border-box;
+}
+.maxwidth{
+    max-width: 100% !important;
+}
+main h1{
+    margin: 10px 10px;
+}
+main p{
+    margin: 5px 12px;
+    font-size: 18px;
+}
+main a{
+    color: #0080ff;
+}
+main a:visited{
+    color: #0080ff;
+}
+main table p{
+    font-size: initial;
+    margin: 1em 0em;
+}
+
+.frontpicture{
+    background-image: var(--frontimage);
+    background-size:     100vw auto;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: top center;
+}
+#frontbuttons{
+    display: flex;
+    position: relative;
+    margin: 0px auto;
+    width: 500px;
+    max-width: 100%;
+    top: 20vw;
+}
+#frontbuttons a{
+    width: 100%;
+    margin: 5px;
+}
+#frontbuttons button{
+    width: 100%;
+    height: 50px;
+    background-color: #0080ff;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+}
+#frontbuttons button:hover{
+    background-color: #006cd8;
+}
+.standardForm{
+    margin: 20px;
+}
+.standardForm p{
+    margin: 5px 0px;
+}
+.standardForm h3{
+    margin: 5px 0px;
+}
+
+.standardForm label{
+    display: block;
+    width: 100%;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+.standardForm fieldset > label{
+    display: initial;
+    font-size: 20px;
+    line-height: 30px;
+    cursor: pointer;
+}
+.standardForm fieldset{
+    display: block;
+    float: left;
+    border: none;
+}
+.standardForm input[type=text],
+.standardForm input[type=email],
+.standardForm textarea,
+.standardForm input[type=number],
+.standardForm input[type=date]{
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--input-background);
+    border: solid 1px #676774;
+    border-radius: 1px;
+    color: var(--color);
+}
+.standardForm input[type=text],
+.standardForm input[type=email]{
+    margin-bottom: 20px;
+    font-size: 20px;
+    height: 30px;
+}
+.standardForm textarea{
+    height: 150px;
+    resize: none;
+    font-family: inherit;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+.standardForm input[type=number],
+.standardForm input[type=date]{
+    max-width: 200px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    height: 30px;
+}
+.standardForm input[type=submit]{
+    width: 180px;
+    box-sizing: border-box;
+    margin: 5px;
+    font-size: 18px;
+    height: 40px;
+    color: green;
+    font-weight: bold;
+}
+.standardForm input[type=reset]{
+    width: 180px;
+    box-sizing: border-box;
+    margin: 5px;
+    font-size: 18px;
+    height: 40px;
+}
+.standardForm input[type=radio]{
+    box-sizing: border-box;
+    font-size: 20px;
+    float: top;
+    width: 25px;
+    height: 25px;
+    margin: 5px;
+    cursor: pointer;
+}
+.standardForm button{
+    margin-top: 2px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 120px;
+    min-height: 30px;
+    height: fit-content;
+    font-size: 16px;
+}
+.flexright{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    flex-wrap: wrap-reverse!important;
+}
+
+.nomargin{
+    margin-top: 0px!important;
+    margin-bottom: 0px!important;
+}
+
+.joinDiv{
+    display: block!important;
+    width: 100%;
+    border: 2px black solid;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: var(--gray-background);
+}
+.joinDiv h2{
+    margin: 20px 10px!important;
+    font-weight: normal;
+    font-size: 25px;
+}
+.joinDiv h3{
+    margin: 0px 10px!important;
+    font-weight: bold;
+    font-size: 22px;
+}
+.joinDiv p{
+    font-size: 20px;
+    margin: 5px 10px;
+    margin-bottom: 25px;
+}
+.linebreak{
+    white-space: pre-line;
+}
+
+
+#kalenderTitleTage{
+    height: 60px;
+    overflow: hidden;
+}
+#kalenderTitleTage b{
+    font-size: 20px;
+}
+#kalenderBoxTage{
+    width: 100%;
+    height: calc(100vh - 160px);
+    min-height: 200px;
+}
+
+
+
+#fixedSubmitSpace{
+    width: 100%;
+    height: 50px;
+}
+#fixedSubmit{
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    display: flex;
+    flex-direction: row-reverse;
+    border-top: 2px var(--color) solid;
+    z-index: 100;
+    background-color: var(--background);
+    box-sizing: border-box;
+}
+#fixedSubmit input{
+    height: 40px;
+    margin: 5px;
+    width: 200px;
+    font-size: 20px;
+}

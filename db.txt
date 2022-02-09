@@ -1,0 +1,72 @@
+drop database if exists terminfinder;
+create database terminfinder;
+use terminfinder;
+create table users(
+	id_user int auto_increment not null unique,
+	vorname varchar(255) not null,
+    nachname varchar(255) not null,
+    email varchar(255) unique,
+    passwort varchar(255) not null ,
+    primary key(id_user)
+);
+
+create table poll(
+	id_poll int auto_increment not null unique,
+    p_name varchar(255) not null,
+    beschreibung varchar(400),
+    laenge int default 1,
+    end_date datetime,
+	url_id varchar(20) unique,
+    id_user int ,
+    primary key(id_poll),
+    foreign key(id_user) references users(id_user) on delete cascade
+);
+
+create table person(
+	id_person int auto_increment not null unique,
+	vorname varchar(255) not null,
+    nachname varchar(255) not null,
+    email varchar(255) not null,
+	prioritaet bool default false, /*True = Essenziell ; False = optional */
+    url_id varchar(20) unique,
+    id_poll int,
+    primary key(id_person),
+    foreign key (id_poll) references poll(id_poll) on delete cascade
+);
+
+create table person_dates(
+	id_person_dates int auto_increment not null unique,
+    startpunkt datetime not null,
+    endpunkt datetime not null,
+    sicherheit int default 3 /* 1 = unsicher ; 2 = wahrscheinlich ; 3 = sicher */,
+    id_person int,
+    primary key(id_person_dates),
+    foreign key(id_person) references person(id_person) on delete cascade
+);
+
+
+create table event_dates(
+	id_event_dates int auto_increment not null unique,
+    startpunkt datetime not null,
+    endpunkt datetime not null,
+    id_poll int,
+    primary key (id_event_dates),
+    foreign key(id_poll) references poll(id_poll) on delete cascade
+);
+
+create table t_reference(
+	id_reference int auto_increment not null unique,
+    reference_startpunkt datetime,
+    reference_endpunkt datetime,
+    primary key(id_reference)
+);
+
+create table ergebnisse(
+    id_ergebnisse int,
+    startpunkt datetime,
+    endpunkt datetime,
+    id_poll int,
+    anzahl_obligatorisch_teilnehmer int,
+    anzahl_optionaler_teilnehmer int,
+    foreign key(id_poll) references poll(id_poll) on delete cascade
+);
